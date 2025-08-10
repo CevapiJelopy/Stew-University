@@ -1,0 +1,28 @@
+{
+  "name": "musicblog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CevapiJelopy/Stew-University.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CevapiJelopy/Stew-University/issues"
+  },
+  "homepage": "https://github.com/CevapiJelopy/Stew-University#readme",
+  "description": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  },
+  "dependencies": {
+    "contentful": "^11.7.15",
+    "dotenv": "^17.2.1"
+  }
+}

@@ -1,0 +1,32 @@
+---
+pagination:
+  data: collections.transcriptions
+  size: 1
+  alias: transcription
+permalink: "/transcriptions/{{ transcription.fields.slug }}/"
+layout: base.njk
+---
+
+<h1>{{ transcription.fields.title }}</h1>
+<h2>By {{ transcription.fields.composer }}</h2>
+
+<div class="sheet-gallery">
+  {% for img in transcription.fields.sheetGallery %}
+  <img src="https:{{ img.fields.file.url }}" alt="Sheet music image" />
+{% endfor %}
+
+</div>
+
+<div class="info-block">
+  <p>{{ transcription.fields.info | safe }}</p>
+</div>
+
+{% if transcription.fields.analysis %}
+<div class="analysis-block">
+  <p>{{ transcription.fields.analysis | safe }}</p>
+  {% if transcription.fields.analysisImage %}
+  <img src="https:{{ transcription.fields.analysisImage.fields.file.url }}" alt="Analysis image" />
+ {% endif %}
+
+</div>
+{% endif %}

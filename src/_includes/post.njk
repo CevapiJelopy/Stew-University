@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }}</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=alpino@100,300,400,500,700,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="container">
+    <div class="post">
+      <div class="post-title">
+        <h1>{{ title }}</h1>
+        <h2>By {{ author }}</h2>
+      </div>
+      <div class="sheet-gallery">
+        {% for image in sheetImages %}
+          <img src="{{ image }}" alt="Sheet music image" />
+        {% endfor %}
+      </div>
+      <div class="info-block">
+        <p>{{ info | safe }}</p>
+      </div>
+      <div class="analysis-block">
+        <p>{{ analysis | safe }}</p>
+        {% if analysisImage %}
+          <img src="{{ analysisImage }}" alt="Analysis image" />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
