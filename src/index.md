@@ -3,16 +3,10 @@ title: Home
 layout: base.njk
 ---
 
-# Welcome to My Music Blog
+# Welcome to My Stewniversity 
+<p> here you will learn how shred on the guitar like a fucking beast in the night <p>
+<p> lets get fucking cooking <p>
 
-Check out the latest posts below!
-
-#dont die
-
-peepee
-
-# OMG
 
 - [See all posts](/transcriptions/)
 
-<a href="/posts/smells/">pee

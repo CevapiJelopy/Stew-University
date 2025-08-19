@@ -1,0 +1,18 @@
+---
+title: "All Transcriptions"
+layout: base.njk
+permalink: "/transcriptions/"
+---
+
+<h1>All Transcriptions</h1>
+
+<ul class="transcription-list">
+  {% for transcriptionPage in collections.transcriptions %}
+    <li>
+      <a href= "{{ transcriptionPage.fields.slug }}">
+        {{ transcriptionPage.fields.title }}
+        by {{ transcriptionPage.fields.composer }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

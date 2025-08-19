@@ -6,6 +6,7 @@ pagination:
 permalink: "/transcriptions/{{ transcription.fields.slug }}/"
 layout: base.njk
 ---
+
 <div class="post">
 
   <div class="post-title">
@@ -22,16 +23,21 @@ layout: base.njk
   </div>
 
   <div class="info-block">
-    <p>{{ transcription.fields.info | safe }}</p>
+  {{ transcription.fields.info | richtext | safe }}
   </div>
 
-  {% if transcription.fields.analysis %}
+
+  {% if transcription.fields.analysisHtml %}
   <div class="analysis-block">
-    <p>{{ transcription.fields.analysis | safe }}</p>
+    {{ transcription.fields.analysisHtml | safe }}
     {% if transcription.fields.analysisImage %}
-    <img src="https:{{ transcription.fields.analysisImage.fields.file.url }}" alt="Analysis image" />
+      <img src="https:{{ transcription.fields.analysisImage.fields.file.url }}" alt="Analysis image" />
+    {% endif %}
+  </div>
   {% endif %}
+
+
 
   </div>
 </div>
-{% endif %}
+

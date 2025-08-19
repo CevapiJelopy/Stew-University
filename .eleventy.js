@@ -1,27 +1,33 @@
 require('dotenv').config();
-const contentfulClient = require('./contentful');
+const contentfulClient = require('./contentful'); // Adjust path if needed
+const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
 
 module.exports = function (eleventyConfig) {
-  // ✅ Passthrough for static assets like CSS
+  // ✅ Passthrough static files
   eleventyConfig.addPassthroughCopy("src/style.css");
   eleventyConfig.addPassthroughCopy("scripts");
 
+  // ✅ Add filter for rich text rendering
+  eleventyConfig.addFilter("richtext", function (value) {
+    if (!value) return '';
+    return documentToHtmlString(value);
+  });
 
-  // ✅ Add Contentful collection
+  // ✅ Custom Contentful collection
   eleventyConfig.addCollection('transcriptions', async () => {
     const entries = await contentfulClient.getEntries({
-      content_type: 'simplePost', // Replace with your actual Contentful content type ID
+      content_type: 'simplePost',
     });
 
     return entries.items;
   });
 
-  // ✅ Return Eleventy directory structure
+  // ✅ Return config object
   return {
     dir: {
-      input: 'src',       // Your template/input files go here
-      includes: '_includes', // Template includes (like layouts)
-      output: 'dist'      // Output directory (can also be '_site' if you prefer)
-    }
+      input: 'src',
+      includes: '_includes',
+      output: 'dist',
+    },
   };
 };
