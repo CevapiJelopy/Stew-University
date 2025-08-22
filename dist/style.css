@@ -1,8 +1,7 @@
 :root {
-    --primary-color: #3a5a40;
-    --secondary-color: #a3b18a;
-    --tertiary-color: #344e41;
-    --font-color: rgb(0,0,0);
+    --primary-color: #82bdbd;
+    --secondary-color: #242F40;
+    --font-color: #E5E5E5;
 }
 body {
     background-color: var(--primary-color);
@@ -31,6 +30,7 @@ body {
 .header h1 {
     font-size: clamp(2.2rem, 4vw, 3rem);
     flex-grow: 1;
+    color: var(--font-color);
 }
 
 .header ul{
@@ -45,10 +45,9 @@ body {
 }
 
 .header a{
-    color:var(--font-color);
+    color: var(--font-color);
     text-decoration: none;
 }
-
 
 .header li:hover {
     scale: 1.1;
@@ -60,7 +59,7 @@ body {
     box-sizing: border-box;
     margin: 5%;
     padding:5%;
-    border: 8px ridge var(--tertiary-color);
+    border: 8px ridge var(--secondary-color);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -97,6 +96,11 @@ body {
     text-align: center;
     font-weight: medium;
     font-size: 18px;
+}
+
+.info-block a{
+    text-decoration: none;
+    color:#CEC9CF;
 }
 
 .analysis-block {
